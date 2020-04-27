@@ -15,7 +15,7 @@ function getRandomIntInclusive(min, max) {
 function stars()
 {
     let n = 0;
-    while(n < 400)
+    while(n < 1000)
     {
         c.beginPath();
         c.arc(getRandomIntInclusive(0, innerWidth),getRandomIntInclusive(0,innerHeight),getRandomIntInclusive(0,2), 0, Math.PI * 2, false);
@@ -28,7 +28,7 @@ function stars()
 }
 
 
-function head()
+function head(x,y)
 {   
     //Draw Head Shape
     c.beginPath();
@@ -76,7 +76,7 @@ function head()
 
     c.beginPath();
     c.ellipse(130,95 , 5, 4, 0, Math.PI, 2 * Math.PI, true);
-    c.strokeStyle = `#ffb400`;
+    c.strokeStyle = `#B6AC36`;
     c.stroke();
 
     //Draw Mouth
@@ -91,10 +91,8 @@ function head()
 
     //Draw left Ear
     c.beginPath();
-    c.arc(90,90,7, (3/4) * Math.PI, (1/2) * Math.PI, false);
-    c.fillStyle='yellow';
-    c.strokeStyle='black';
-    c.stroke();
+    c.moveTo(20, 20);
+    
     c.fill();
 
     //Draw Hair
@@ -107,6 +105,5 @@ function head()
 
 }
 
-
-stars();
+//stars();
 head();
