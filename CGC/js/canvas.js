@@ -1,10 +1,31 @@
 var canvas = document.getElementById('canvas');
 
 //Make Canvas use all the screen region
-canvas.width= window.innerWidth;
-canvas.height= window.innerHeight;
+canvas.width= innerWidth;
+canvas.height= innerHeight;
 
 var c = canvas.getContext('2d');
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+function stars()
+{
+    let n = 0;
+    while(n < 400)
+    {
+        c.beginPath();
+        c.arc(getRandomIntInclusive(0, innerWidth),getRandomIntInclusive(0,innerHeight),getRandomIntInclusive(0,2), 0, Math.PI * 2, false);
+        c.strokeStyle = `white`;
+        c.fillStyle = `White`; //Fill the arc
+        c.fill();
+        c.stroke();
+        n++;
+    } 
+}
 
 
 function head()
@@ -86,4 +107,6 @@ function head()
 
 }
 
+
+stars();
 head();
