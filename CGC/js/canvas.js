@@ -28,82 +28,75 @@ function stars()
 }
 
 
-function head(x,y)
-{   
-    //Draw Head Shape
-    c.beginPath();
-    c.ellipse(130, 90, 40, 45, 0, 0, 2 * Math.PI);
-    c.strokeStyle = `#fac119`;
-    c.fillStyle = `#fac119`;
-    c.fill();
-    c.stroke();
+function head()
+{
+  //Draw Shape   
+  c.beginPath();
+  c.ellipse(800, 400, 37, 30, 0, 0, 2 * Math.PI);
+  c.strokeStyle = `#fac119`;
+  c.fillStyle = `#f5b003`;
+  c.fill();
+  c.stroke();
+  c.closePath();
+}
 
-    //Draw 1st Eye
-
-    c.beginPath();
-    c.arc(115,80,3, 0, Math.PI * 2, false);
-    c.strokeStyle = `black`;
-    c.fillStyle = `black`; //Fill the arc
-    c.fill();
-    c.stroke();
-
-    //Draw 1st eyebrow
-    c.beginPath();
-    c.ellipse(115,70 , 8, 3, 0, 0, Math.PI, true);
-    c.strokeStyle = `brown`;
-    c.fillStyle = `brown`; //Fill the arc
-    c.stroke();
-    c.fill()
-
-    //Draw 2nd Eye
-
-    c.beginPath();
-    c.arc(145,80,3, 0, Math.PI * 2, false);
-    c.strokeStyle = `black`;
-    c.fillStyle = `black`; //Fill the arc
-    c.fill();
-    c.stroke();
-
-    //Draw 2nd eyebrow
-    c.beginPath();
-    c.ellipse(145,70 , 8, 3, 0, 0, Math.PI, true);
-    c.strokeStyle = `brown`;
-    c.fillStyle = `brown`; //Fill the arc
-    c.stroke();
-    c.fill()
-
-    // Draw Nose
-
-    c.beginPath();
-    c.ellipse(130,95 , 5, 4, 0, Math.PI, 2 * Math.PI, true);
-    c.strokeStyle = `#B6AC36`;
-    c.stroke();
-
-    //Draw Mouth
-
-    c.beginPath();
-    c.moveTo(120, 110);
-    c.quadraticCurveTo(130, 125, 140, 110);
-    c.strokeStyle = `black`;
-    c.fillStyle = `brown`;
-    c.stroke();
-    c.fill();
-
-    //Draw left Ear
-    c.beginPath();
-    c.moveTo(20, 20);
-    
-    c.fill();
-
-    //Draw Hair
-    /* c.beginPath();
-    c.moveTo(105, 65);
-    c.lineTo(150, 60);
-    c.lineTo(170,85)
-    c.strokeStyle='brown';
-    c.stroke() */
+function arm()
+{
+  c.beginPath();
 
 }
 
-//stars();
-head();
+function body()
+{
+  c.beginPath();
+  c.moveTo(750,348); //752,358
+  c.lineTo(750,388);
+  /* c.lineTo(766,388); */ //
+  c.moveTo(750,409);
+  /* c.lineTo() */
+  c.lineTo(750,451); //752,441
+  c.lineTo(630,451);
+  c.lineTo(630,410);
+  c.lineTo(530,410);
+  c.line
+  c.strokeStyle = `#000000`;
+  c.fillStyle = `#000000`;
+  c.stroke();
+  //c.fill();
+  c.closePath();
+}
+
+function neck()
+{
+  c.beginPath();
+  /* c.moveTo(750,388); //752,358
+  c.lineTo(765,388);
+  c.moveTo(765,409);
+  c.lineTo(750,409);
+  c.lineTo(750,388); */
+  c.moveTo(765,388);
+  c.lineTo(750,388);
+  c.lineTo(750,409);
+  c.lineTo(765,409);
+  c.strokeStyle = `#d85f1c`;
+  c.fillStyle = `#f5b003`;
+  c.stroke();
+  c.fill();
+  c.closePath();
+}
+
+function arm()
+{
+  c.beginPath();
+  c.moveTo();
+}
+
+function hero()
+{
+  head();
+  neck();
+  body();
+}
+
+stars();
+hero();
