@@ -49,20 +49,28 @@ function arm()
 function body()
 {
   c.beginPath();
-  c.moveTo(750,348); //752,358
+  c.moveTo(750,350
+    ); //752,358
   c.lineTo(750,388);
   /* c.lineTo(766,388); */ //
   c.moveTo(750,409);
   /* c.lineTo() */
-  c.lineTo(750,451); //752,441
-  c.lineTo(630,451);
-  c.lineTo(630,410);
-  c.lineTo(530,410);
-  c.line
-  c.strokeStyle = `#000000`;
-  c.fillStyle = `#000000`;
+  c.lineTo(750,450); //752,441
+  c.lineTo(630,450);
+  c.lineTo(630,440);
+  c.lineTo(530,440);
+  c.lineTo(530,415);
+  c.lineTo(630,415);
+  c.lineTo(630,385);
+  c.lineTo(530,385);
+  c.lineTo(530,360);
+  c.lineTo(630,360);
+  c.lineTo(630,350);
+  c.lineTo(750,350);
+  c.strokeStyle = `#5698ca`;
+  c.fillStyle = `#3fa4f4`;
   c.stroke();
-  //c.fill();
+  c.fill();
   c.closePath();
 }
 
