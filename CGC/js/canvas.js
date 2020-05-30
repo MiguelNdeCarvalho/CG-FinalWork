@@ -40,9 +40,19 @@ function head()
   c.closePath();
 }
 
-function arm()
+function arms()
 {
+  //Draw First Arm
   c.beginPath();
+  c.fillStyle = `#f5b003`;
+  c.fillRect(750, 352, 100, 15);
+  c.closePath();
+
+  //Draw Second Arm
+  c.beginPath();
+  c.fillStyle = `#f5b003`;
+  c.fillRect(750, 433, 100, 15);
+  c.closePath();
 
 }
 
@@ -93,11 +103,6 @@ function neck()
   c.closePath();
 }
 
-function arm()
-{
-  c.beginPath();
-  c.moveTo();
-}
 
 function boots()
 {
@@ -136,6 +141,7 @@ function hero()
   neck();
   body();
   boots();
+  arms();
 }
 
 stars();
