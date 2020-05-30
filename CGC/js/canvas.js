@@ -99,11 +99,43 @@ function arm()
   c.moveTo();
 }
 
+function boots()
+{
+  c.beginPath();
+  c.moveTo(530,414);
+  c.lineTo(530,451);//530,441 + 10
+  c.lineTo(510,451);
+  c.lineTo(510,414);
+  c.lineTo(530,414);
+  c.moveTo(530,451);
+  c.quadraticCurveTo(520, 468, 510, 451);
+  c.strokeStyle = `#d85f1c`;
+  c.fillStyle = `#f5b003`;
+  c.stroke();
+  c.fill();
+  c.closePath();
+
+  c.beginPath();
+  c.moveTo(530,395);
+  c.lineTo(530,360);//530,441 + 10
+  c.lineTo(510,360);
+  c.lineTo(510,395);
+  c.lineTo(530,395);
+  c.moveTo(530,395);
+  c.quadraticCurveTo(520, 411, 510, 395);
+  c.strokeStyle = `#d85f1c`;
+  c.fillStyle = `#f5b003`;
+  c.stroke();
+  c.fill();
+  c.closePath();
+}
+
 function hero()
 {
   head();
   neck();
   body();
+  boots();
 }
 
 stars();
