@@ -27,6 +27,19 @@ function stars()
     } 
 }
 
+function sun()
+{
+  c.beginPath();
+  c.arc(200, 200, 300, 0, 2.0*Math.PI, false);
+  c.fillStyle = `yellow`;
+  c.fill();
+  c.closePath();
+}
+
+function planets()
+{
+  sun();
+}
 
 function head()
 {
@@ -217,3 +230,4 @@ function hero()
 
 stars();
 hero();
+planets();
