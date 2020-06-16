@@ -1,0 +1,50 @@
+body
+{
+    text-align: center;
+}
+
+#passaros{
+    animation: passaros;
+    animation-duration: 25s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes passaros{
+    from{
+        transform: translateX(0px) translateY(0px);
+    }
+    to{
+        transform: translateX(-650px) translateY(60px);
+    }
+}
+
+#barco{
+    animation-duration: 20s;
+    animation-name: barco;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes barco{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(650px);
+    }
+}
+
+#braco{
+    animation: braco 1s;
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes braco{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(650px);
+    }
+}
