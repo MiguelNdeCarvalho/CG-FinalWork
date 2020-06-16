@@ -1,31 +1,41 @@
+*
+{
+    background-color: #505050;
+}
+
 body
 {
     text-align: center;
 }
 
-#passaros{
+
+#passaros
+{
     animation: passaros;
     animation-duration: 25s;
     animation-fill-mode: forwards;
 }
 
-@keyframes passaros{
+@keyframes passaros
+{
     from{
         transform: translateX(0px) translateY(0px);
     }
     to{
-        transform: translateX(-650px) translateY(60px);
+        transform: translateX(-1000px) translateY(60px);
     }
 }
 
-#barco{
-    animation-duration: 20s;
-    animation-name: barco;
+#barco
+{
+    animation: barco 15s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-@keyframes barco{
+@keyframes barco
+{
     from{
         transform: translateX(0);
     }
@@ -34,17 +44,42 @@ body
     }
 }
 
-#braco{
-    animation: braco 1s;
+#braco
+{
+    animation: braco 15s;
     animation-duration: 15s;
     animation-fill-mode: forwards;
 }
 
-@keyframes braco{
+@keyframes braco
+{
     from{
+
         transform: translateX(0);
     }
-    to{
+    to
+    {
         transform: translateX(650px);
     }
 }
+
+#erva
+{
+    animation: erva 1s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    align-items: baseline;
+}
+
+@keyframes erva
+{
+    from
+    {
+        transform: translateX(0);
+    }
+    to
+    {
+        transform: translateX(5px);
+    }
+}1
