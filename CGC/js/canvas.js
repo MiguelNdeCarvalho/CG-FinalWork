@@ -72,9 +72,10 @@ function arms()
 function logo(x,y)
 {
   c.save();
+
+  c.rotate(90 * Math.PI / 180)
   c.beginPath();
   c.scale(0.1,0.1);
-  //c.rotate(Math.PI / 2);
 
   c.moveTo(x+0.0, y+132.4);
   c.lineTo(x+389.9, y+581.4);
@@ -165,7 +166,7 @@ function body()
   c.fill();
   c.closePath();
 
-  logo(6500,3650);
+  logo(3600,-7250);
 }
 
 function neck()
