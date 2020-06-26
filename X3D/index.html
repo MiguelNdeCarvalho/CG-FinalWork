@@ -2,9 +2,66 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>NNNNN-TEC</title>
+        <title>43108 - X3D</title>
+        <script type='application/javascript' src='lib/x3dom/x3dom-full.js'> </script>
+        <link rel="stylesheet" href="style/style.css" />
     </head>
     <body>
-        <h1>Trabalho de NNNNN - TEC</h1>
+        <h1>Trabalho de 43108 - X3D</h1>
+        <x3d width='1000px' height='1000px'> 
+          <scene>
+            <Transform rotation='1 0 0 0.25'>
+              <Transform translation='0 0 0'>
+                <Shape>
+                  <Appearance>
+                    <twoSidedMaterial diffuseColor='gray' />
+                  </Appearance>
+                  <Sphere radius='0.5'/>
+                </Shape>
+              </Transform>
+              <Transform translation='0 0.5 0'>
+                <Shape>
+                  <Appearance>
+                    <twoSidedMaterial diffuseColor='gray'/>
+                  </Appearance>
+                  <Cylinder height='1' radius='0.5'/>
+                </Shape>
+              </Transform>
+              <Transform translation='0 1.9 0'>
+                <Shape>
+                  <Appearance>
+                    <Material diffuseColor='yellow' emissiveColor='0.3 0.3 0.3' transparency='0.3' DEF='casquilho'/>
+                  </Appearance>
+                  <Sphere/>
+                </Shape>
+              </Transform>
+              <Transform translation='-0.2 1 0' rotation='0 0 1 0.25'>
+                <Shape>
+                  <Appearance>
+                    <twoSidedMaterial diffuseColor='#b87333'/>
+                  </Appearance>
+                  <Cylinder height='2' radius='0.03'/>
+                </Shape>
+              </Transform>
+              <Transform translation='0.2 1 0' rotation='0 0 1 -0.25'>
+                <Shape>
+                  <Appearance>
+                    <twoSidedMaterial diffuseColor='#b87333'/>
+                  </Appearance>
+                  <Cylinder height='2' radius='0.03'/>
+                </Shape>
+              </Transform>
+              <transform translation='0 2.1 0' rotation='0 0 1 -0.3'>
+                <shape>
+                    <appearance>
+                        <twoSidedMaterial diffuseColor='#b87333'/>
+                    </appearance>
+                    <Torus angle='2.5' caps='true' ccw='true' innerRadius='0.01' outerRadius='0.45' solid='true' subdivision='50,50'></Torus>
+                </shape>
+              </transform>
+              <PointLight on='TRUE' intensity='0.9' color='yellow' location='0 2 0 ' radius='150' />
+            </Transform>
+          </scene> 
+        </x3d>
     </body>
 </html>
