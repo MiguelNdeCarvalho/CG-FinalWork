@@ -182,9 +182,75 @@ function deathstar()
     this.leave_colors(`green`,`green`);
 }
 
+function superman_leftharm()
+{
+
+}
+
+function superman_cape()
+{
+
+}
+
+function superman_neck()
+{
+
+}
+
+function superman_head()
+{
+
+}
+
+function superman_hair()
+{
+
+}
+
+function superman_eyes()
+{
+
+}
+
+function superman_lips()
+{
+
+}
+
+function superman_body()
+{
+
+}
+
+function superman_leg()
+{
+
+}
+
+function superman_hip()
+{
+
+}
+
+function superman_rightharm()
+{
+
+}
+
 function superman()
 {
-    
+    this.superman_leftharm();
+    this.superman_cape();
+    this.superman_neck();
+    this.superman_head();
+    this.superman_hair();
+    this.superman_eyes();
+    this.superman_lips();
+    this.superman_body();
+    this.superman_leg();
+    this.superman_hip();
+    this.superman_rightharm();
+    this.superman_leg();
 }
 
 /*---------------------------------------------------------------------
@@ -236,6 +302,18 @@ function functions(gc)
     gc.deathstar_xray=deathstar_xray;
     gc.deathstar_xrayplus=deathstar_xrayplus;
     gc.deathstar_xrayball=deathstar_xrayball;
+    this.superman_leftharm=superman_leftharm;
+    this.superman_cape=superman_cape;
+    this.superman_neck=superman_neck;
+    this.superman_head=superman_head;
+    this.superman_hair=superman_hair;
+    this.superman_eyes=superman_eyes;
+    this.superman_lips=superman_lips;
+    this.superman_body=superman_body;
+    this.superman_leg=superman_leg;
+    this.superman_hip=superman_hip;
+    this.superman_rightharm=superman_rightharm;
+    this.superman_leg=superman_leg;
 }
 
 function main()
