@@ -187,6 +187,11 @@ function superman_leftharm()
 
 }
 
+function superman_lefhand()
+{
+    
+}
+
 function superman_cape()
 {
 
@@ -237,9 +242,20 @@ function superman_rightharm()
 
 }
 
+function superman_righthand()
+{
+
+}
+
+function superman_symbol()
+{
+
+}
+
 function superman()
 {
     this.superman_leftharm();
+    this.superman_lefhand();
     this.superman_cape();
     this.superman_neck();
     this.superman_head();
@@ -250,7 +266,9 @@ function superman()
     this.superman_leg();
     this.superman_hip();
     this.superman_rightharm();
+    this.superman_righthand();
     this.superman_leg();
+    this.superman_symbol();
 }
 
 /*---------------------------------------------------------------------
@@ -303,6 +321,7 @@ function functions(gc)
     gc.deathstar_xrayplus=deathstar_xrayplus;
     gc.deathstar_xrayball=deathstar_xrayball;
     this.superman_leftharm=superman_leftharm;
+    this.superman_lefhand=superman_lefhand;
     this.superman_cape=superman_cape;
     this.superman_neck=superman_neck;
     this.superman_head=superman_head;
@@ -313,7 +332,9 @@ function functions(gc)
     this.superman_leg=superman_leg;
     this.superman_hip=superman_hip;
     this.superman_rightharm=superman_rightharm;
+    this.superman_righthand=superman_righthand;
     this.superman_leg=superman_leg;
+    this.superman_symbol=superman_symbol;
 }
 
 function main()
