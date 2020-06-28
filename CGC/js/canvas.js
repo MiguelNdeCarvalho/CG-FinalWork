@@ -1,234 +1,253 @@
-var canvas = document.getElementById('canvas');
+/*---------------------------------------------------------------------
+|  Functions needed for draw functions
+*-------------------------------------------------------------------*/
 
-//Make Canvas use all the screen region
-canvas.width= innerWidth;
-canvas.height= innerHeight;
+function join()
+{
+    this.save();    
+}
 
-var c = canvas.getContext('2d');
+function join_trs(t_x,t_y,r_x,r_y,s_x,s_y) //Translate, Rotate, Scale
+{
+    this.save();
+    this.translate(t_x,t_y);
+    this.rotate(r_x,r_y);
+    this.scale(s_x,s_y);
+}
 
-function getRandomIntInclusive(min, max) {
+function leave()
+{
+    this.restore();
+}
+
+function leave_colors(fill_color, stroke_color)
+{
+    this.fillStyle = fill_color;
+	this.strokeStyle = stroke_color;
+	this.fill();
+	this.stroke();
+	this.restore();
+}
+
+/*---------------------------------------------------------------------
+|  Draw functions
+*-------------------------------------------------------------------*/
+
+function getRandomIntInclusive(min, max) 
+{
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+}
 
 function stars()
 {
-    let n = 0;
-    while(n < 1000)
-    {
-        c.beginPath();
-        c.arc(getRandomIntInclusive(0, innerWidth),getRandomIntInclusive(0,innerHeight),getRandomIntInclusive(0,2), 0, Math.PI * 2, false);
-        c.strokeStyle = `white`;
-        c.fillStyle = `White`; //Fill the arc
-        c.fill();
-        c.stroke();
-        n++;
-    } 
+    this.beginPath();
+    this.arc(getRandomIntInclusive(0, innerWidth),getRandomIntInclusive(0,innerHeight),getRandomIntInclusive(0,2), 0, Math.PI * 2, false);
+    this.closePath();
 }
 
 function sun()
 {
-  c.beginPath();
-  c.arc(200, 200, 300, 0, 2.0*Math.PI, false);
-  c.fillStyle = `yellow`;
-  c.fill();
-  c.closePath();
+    this.beginPath();
+    this.arc(200, 200, 300, 0, 2.0*Math.PI, false);
+    this.closePath();
 }
 
-function planets()
+function deathstar_ball()
 {
-  sun();
+    this.beginPath();
+    this.arc(500, 500, 150, 0, 2.0*Math.PI, false);
+    this.closePath();    
 }
 
-function head()
+function deathstar_line()
 {
-  //Draw Shape   
-  c.beginPath();
-  c.ellipse(800, 400, 37, 30, 0, 0, 2 * Math.PI);
-  c.strokeStyle = `#fac119`;
-  c.fillStyle = `#f5b003`;
-  c.fill();
-  c.stroke();
-  c.closePath();
+    this.beginPath();
+    this.moveTo(850,550)
+    this.lineTo(1150,550);
+    this.lineWidth = 10;
+    this.closePath();    
 }
 
-function arms()
+function deathstar_smallballup()
 {
-  //Draw First Arm
-  c.beginPath();
-  c.fillStyle = `#f5b003`;
-  c.fillRect(750, 352, 100, 15);
-  c.closePath();
-
-  //Draw Second Arm
-  c.beginPath();
-  c.fillStyle = `#f5b003`;
-  c.fillRect(750, 433, 100, 15);
-  c.closePath();
-
+    this.beginPath();
+    this.arc(500, 500, 125, 0, 1.0*Math.PI, true);
+    this.closePath();    
 }
 
-function logo(x,y)
+function deathstar_smallballdown()
 {
-  c.save();
-
-  c.rotate(90 * Math.PI / 180)
-  c.beginPath();
-  c.scale(0.1,0.1);
-
-  c.moveTo(x+0.0, y+132.4);
-  c.lineTo(x+389.9, y+581.4);
-  c.lineTo(x+779.8, y+132.4);
-  c.lineTo(x+649.5, y+0.0);
-  c.lineTo(x+130.3, y+0.0);
-  c.lineTo(x+0.0, y+132.4);
-  c.lineTo(x+0.0, y+132.4);
-  c.closePath();
-
-  c.moveTo(x+641.7, y+37.5);
-  c.lineTo(x+723.4, y+121.0);
-  c.lineTo(x+733.5, y+131.3);
-  c.lineTo(x+724.0, y+142.2);
-  c.lineTo(x+630.0, y+249.1);
-  c.bezierCurveTo(x+592.1, y+162.2, x+451.4,y+ 167.7, x+373.7,y+ 169.4);
-  c.bezierCurveTo(x+307.7, y+170.9, x+229.5,y+ 162.7, x+224.6,y+ 109.3);
-  c.bezierCurveTo(x+219.9, y+57.4, x+309.2, y+33.5, x+361.3,  y+33.6);
-  c.bezierCurveTo(x+418.3, y+33.7, x+509.8, y+43.1, x+523.4,  y+136.5);
-  c.bezierCurveTo(x+562.8, y+136.5, x+602.3,y+ 136.5, x+641.7,y+ 136.5);
-  c.lineTo(x+641.7, y+37.5);
-  c.lineTo(x+641.7, y+37.5);
-  c.closePath();
-
-  c.moveTo(x+499.8, y+397.1);
-  c.lineTo(x+402.1, y+508.2);
-  c.lineTo(x+390.5, y+521.4);
-  c.lineTo(x+378.8, y+508.2);
-  c.lineTo(x+283.4, y+400.0);
-  c.bezierCurveTo(x+367.8, y+415.4, x+438.1, y+411.9, x+499.8, y+397.1);
-  c.lineTo(x+499.8, y+397.1);
-  c.closePath();
-
-  c.moveTo(x+236.9, y+347.3);
-  c.lineTo(x+152.1, y+251.2);
-  c.bezierCurveTo(x+198.2, y+273.1, x+288.3, y+272.7, x+353.8,y+ 275.5);
-  c.bezierCurveTo(x+467.5, y+280.3, x+552.8, y+283.7, x+551.1,y+ 318.5);
-  c.bezierCurveTo(x+549.6, y+348.7, x+488.6, y+364.8,x+381.3, y+366.2);
-  c.bezierCurveTo(x+343.4, y+307.6, x+245.9, y+302.4,x+236.9, y+347.3);
-  c.lineTo(x+236.9, y+347.3);
-  c.closePath();
-
-  c.moveTo(x+113.0,y+ 206.9);
-  c.lineTo(x+55.9, y+142.2);
-  c.lineTo(x+46.3, y+131.3);
-  c.lineTo(x+56.4, y+121.0);
-  c.lineTo(x+141.0,y+ 34.6);
-  c.lineTo(x+145.6,y+ 30.0);
-  c.lineTo(x+152.1,y+ 30.0);
-  c.lineTo(x+231.3,y+ 30.0);
-  c.bezierCurveTo(x+186.0, y+46.7, x+103.1, y+109.5, x+113.0, y+206.9);
-  c.lineTo(x+113.0, y+206.9);
-  c.closePath();
-
-  c.moveTo(x+513.5, y+30.0);
-  c.lineTo(x+583.7, y+30.0);
-  c.bezierCurveTo(x+584.8, y+48.4, x+578.2, y+71.4, x+557.8, y+84.1);
-  c.bezierCurveTo(x+551.6, y+68.3, x+531.2, y+46.3, x+513.5, y+30.0);
-  c.closePath();
-  c.fillStyle = "rgb(237, 41, 63)";
-  c.fill();
-  c.restore();
+    this.beginPath();
+    this.arc(500, 500, 125, 0, 1.0*Math.PI, false);
+    this.closePath();    
 }
 
-function body()
+function deathstar_eye()
 {
-  c.beginPath();
-  c.moveTo(750,350); //752,358
-  c.lineTo(750,388);
-  /* c.lineTo(766,388); */ //
-  c.moveTo(750,409);
-  /* c.lineTo() */
-  c.lineTo(750,450); //752,441
-  c.lineTo(630,450);
-  c.lineTo(630,440);
-  c.lineTo(530,440);
-  c.lineTo(530,415);
-  c.lineTo(630,415);
-  c.lineTo(630,385);
-  c.lineTo(530,385);
-  c.lineTo(530,360);
-  c.lineTo(630,360);
-  c.lineTo(630,350);
-  c.lineTo(750,350);
-  c.strokeStyle = `#5698ca`;
-  c.fillStyle = `#3fa4f4`;
-  c.stroke();
-  c.fill();
-  c.closePath();
-
-  logo(3600,-7250);
+    this.beginPath();
+    this.arc(500, 500, 40, 0, 2.0*Math.PI, false);
+    this.closePath();     
 }
 
-function neck()
+function deathstar_smalleye()
 {
-  c.beginPath();
-  /* c.moveTo(750,388); //752,358
-  c.lineTo(765,388);
-  c.moveTo(765,409);
-  c.lineTo(750,409);
-  c.lineTo(750,388); */
-  c.moveTo(765,388);
-  c.lineTo(750,388);
-  c.lineTo(750,409);
-  c.lineTo(765,409);
-  c.strokeStyle = `#d85f1c`;
-  c.fillStyle = `#f5b003`;
-  c.stroke();
-  c.fill();
-  c.closePath();
+    this.beginPath();
+    this.arc(500, 500, 10, 0, 2.0*Math.PI, false);
+    this.closePath();     
 }
 
-
-function boots()
+function deathstar_xray()
 {
-  c.beginPath();
-  c.moveTo(530,414);
-  c.lineTo(530,451);//530,441 + 10
-  c.lineTo(510,451);
-  c.lineTo(510,414);
-  c.lineTo(530,414);
-  c.moveTo(530,451);
-  c.quadraticCurveTo(520, 468, 510, 451);
-  c.strokeStyle = `#d85f1c`;
-  c.fillStyle = `#f5b003`;
-  c.stroke();
-  c.fill();
-  c.closePath();
+    this.beginPath();
 
-  c.beginPath();
-  c.moveTo(530,395);
-  c.lineTo(530,360);//530,441 + 10
-  c.lineTo(510,360);
-  c.lineTo(510,395);
-  c.lineTo(530,395);
-  c.moveTo(530,395);
-  c.quadraticCurveTo(520, 411, 510, 395);
-  c.strokeStyle = `#d85f1c`;
-  c.fillStyle = `#f5b003`;
-  c.stroke();
-  c.fill();
-  c.closePath();
+    this.lineWidth = 2;
+
+    this.moveTo(949,434)
+    this.lineTo(928,461);
+
+    this.moveTo(989,474)
+    this.lineTo(928,461);
+
+    this.moveTo(949,515)
+    this.lineTo(928,461);
+
+    this.moveTo(910,474)
+    this.lineTo(928,461);
+    
+    this.closePath();
 }
 
-function hero()
+function deathstar_xrayplus()
 {
-  head();
-  neck();
-  body();
-  boots();
-  arms();
+    this.beginPath()
+
+    this.lineWidth = 10;
+
+    this.moveTo(928,461)
+    this.lineTo(368,236);
+
+    this.closePath();
 }
 
-stars();
-hero();
-planets();
+function deathstar_xrayball()
+{
+    this.beginPath();
+    this.arc(500, 500, 5, 0, 2.0*Math.PI, false);
+    this.closePath();    
+}
+
+
+function deathstar()
+{
+    this.join_trs(500,50,0,0,1,1);
+    this.deathstar_ball();
+    this.leave_colors(`#9a9b9f`, `#9a9b9f`);
+    
+    this.join();
+    this.deathstar_line();
+    this.leave_colors(`black`, `black`);
+
+    this.join_trs(500,35,0,0,1,1);
+    this.deathstar_smallballup();
+    this.leave_colors(`grey`, `grey`);
+
+    this.join_trs(500,65,0,0,1,1);
+    this.deathstar_smallballdown();
+    this.leave_colors(`grey`, `grey`);
+
+    this.join_trs(450,-25,0,0,1,1);
+    this.deathstar_eye();
+    this.leave_colors(`#404145`, `black`);
+
+    this.join_trs(450,-25,0,0,1,1);
+    this.deathstar_smalleye();
+    this.leave_colors(`black`, `black`);
+
+    this.join();
+    this.deathstar_xray();
+    this.leave_colors(`green`, `green`);
+
+    this.join();
+    this.deathstar_xrayplus();
+    this.leave_colors(`green`, `green`);
+
+    this.join_trs(429,-39,0,0,1,1);
+    this.deathstar_xrayball();
+    this.leave_colors(`green`,`green`);
+
+    this.join_trs(-380,-513,0,0,1.5,1.5);
+    this.deathstar_xrayball();
+    this.leave_colors(`green`,`green`);
+}
+
+function superman()
+{
+    
+}
+
+/*---------------------------------------------------------------------
+|  Functions that make it work
+*-------------------------------------------------------------------*/
+
+function draw()
+{
+    
+    let n = 0;
+    
+    while(n < 2000)
+    {
+        this.join();
+        this.stars();
+        this.leave_colors(`white`, `black`);
+
+        n++;
+    }
+    
+    
+    
+    this.join_trs(270,270,0,0,-0.7,-0.7);
+    this.sun();
+    this.leave_colors(`yellow`, `yellow`);
+    
+    this.deathstar();
+    
+    
+    /* this.superman(); */
+}
+
+function functions(gc)
+{
+    gc.join = join;
+    gc.join_trs  = join_trs;
+    gc.leave = leave;
+    gc.leave_colors = leave_colors;
+    gc.draw = draw;
+    gc.stars = stars;
+    gc.sun = sun;
+    gc.deathstar = deathstar;
+    gc.deathstar_ball = deathstar_ball;
+    gc.deathstar_line = deathstar_line;
+    gc.deathstar_smallballup=deathstar_smallballup;
+    gc.deathstar_smallballdown=deathstar_smallballdown;
+    gc.deathstar_eye=deathstar_eye;
+    gc.deathstar_smalleye=deathstar_smalleye;
+    gc.deathstar_xray=deathstar_xray;
+    gc.deathstar_xrayplus=deathstar_xrayplus;
+    gc.deathstar_xrayball=deathstar_xrayball;
+}
+
+function main()
+{
+    var canvas = document.getElementById('canvas');
+    canvas.width= '1280';
+    canvas.height= '720';
+    var c = canvas.getContext('2d');
+
+    functions(c);
+    
+    c.join();
+    c.draw();
+    c.leave();
+}
