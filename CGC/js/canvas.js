@@ -182,29 +182,39 @@ function deathstar()
     this.leave_colors(`green`,`green`);
 }
 
-function superman_leftharm()
+function superman_harm()
 {
-
+    this.beginPath();
+    this.fillStyle= '#0483ce';
+    this.fillRect(0,0,80,20);
+    this.closePath();
 }
 
-function superman_lefhand()
+function superman_hand()
 {
-    
+    this.beginPath();
+    this.arc(500, 500, 12.5, 0, 2.0*Math.PI, false);
+    this.closePath();         
 }
 
 function superman_cape()
 {
-
+    this.beginPath();
+    this.moveTo(296,500);
+    this.bezierCurveTo(296,500,275,500,280,480);
+    this.bezierCurveTo(278,448,250,475,242,466);
+    this.bezierCurveTo(230,450,215,450,205,465);
+    this.bezierCurveTo(195,470,187.5,470,180,465);
+    this.bezierCurveTo(170,450,150,490,165,490);
+    this.closePath();
 }
 
-function superman_neck()
-{
-
-}
 
 function superman_head()
 {
-
+  this.beginPath();
+  this.ellipse(800, 400, 30, 37, 0, 0, 2 * Math.PI);
+  this.closePath();
 }
 
 function superman_hair()
@@ -214,61 +224,128 @@ function superman_hair()
 
 function superman_eyes()
 {
-
-}
-
-function superman_lips()
-{
-
+    this.beginPath();
+    this.arc(0, 0, 12.5, 0, 2.0*Math.PI, false);
+    this.closePath();
 }
 
 function superman_body()
 {
-
+    this.beginPath();
+    this.fillStyle= '#0483ce';
+    this.fillRect(0,0,100,40);
+    this.closePath();
 }
 
 function superman_leg()
 {
-
-}
-
-function superman_hip()
-{
-
-}
-
-function superman_rightharm()
-{
-
-}
-
-function superman_righthand()
-{
-
+    this.beginPath();
+    this.fillStyle= '#0483ce';
+    this.fillRect(0,0,100,25);
+    this.closePath();
 }
 
 function superman_symbol()
 {
+    this.beginPath();
+    this.moveTo(0.0, 132.4);
+    this.lineTo(389.9, 581.4);
+    this.lineTo(779.8, 132.4);
+    this.lineTo(649.5, 0.0);
+    this.lineTo(130.3, 0.0);
+    this.lineTo(0.0, 132.4);
+    this.lineTo(0.0, 132.4);
 
+    this.moveTo(641.7, 37.5);
+    this.lineTo(723.4, 121.0);
+    this.lineTo(733.5, 131.3);
+    this.lineTo(724.0, 142.2);
+    this.lineTo(630.0, 249.1);
+    this.bezierCurveTo(592.1, 162.2, 451.4, 167.7, 373.7, 169.4);
+    this.bezierCurveTo(307.7, 170.9, 229.5, 162.7, 224.6, 109.3);
+    this.bezierCurveTo(219.9, 57.4, 309.2, 33.5, 361.3,  33.6);
+    this.bezierCurveTo(418.3, 33.7, 509.8, 43.1, 523.4,  136.5);
+    this.bezierCurveTo(562.8, 136.5, 602.3, 136.5, 641.7, 136.5);
+    this.lineTo(641.7, 37.5);
+    this.lineTo(641.7, 37.5);
+
+    this.moveTo(499.8, 397.1);
+    this.lineTo(402.1, 508.2);
+    this.lineTo(390.5, 521.4);
+    this.lineTo(378.8, 508.2);
+    this.lineTo(283.4, 400.0);
+    this.bezierCurveTo(367.8, 415.4, 438.1, 411.9, 499.8, 397.1);
+    this.lineTo(499.8, 397.1);
+
+    this.moveTo(236.9, 347.3);
+    this.lineTo(152.1, 251.2);
+    this.bezierCurveTo(198.2, 273.1, 288.3, 272.7, 353.8, 275.5);
+    this.bezierCurveTo(467.5, 280.3, 552.8, 283.7, 551.1, 318.5);
+    this.bezierCurveTo(549.6, 348.7, 488.6, 364.8,381.3, 366.2);
+    this.bezierCurveTo(343.4, 307.6, 245.9, 302.4,236.9, 347.3);
+    this.lineTo(236.9, 347.3);
+
+    this.moveTo(113.0, 206.9);
+    this.lineTo(55.9, 142.2);
+    this.lineTo(46.3, 131.3);
+    this.lineTo(56.4, 121.0);
+    this.lineTo(141.0, 34.6);
+    this.lineTo(145.6, 30.0);
+    this.lineTo(152.1, 30.0);
+    this.lineTo(231.3, 30.0);
+    this.bezierCurveTo(186.0, 46.7, 103.1, 109.5, 113.0, 206.9);
+    this.lineTo(113.0, 206.9);;
+    
+    this.moveTo(513.5, 30.0);
+    this.lineTo(583.7, 30.0);
+    this.bezierCurveTo(584.8, 48.4, 578.2, 71.4, 557.8, 84.1);
+    this.bezierCurveTo(551.6, 68.3, 531.2, 46.3, 513.5, 30.0);
+    this.closePath();
+}
+
+function superman_boot()
+{    
 }
 
 function superman()
 {
-    this.superman_leftharm();
-    this.superman_lefhand();
-    this.superman_cape();
-    this.superman_neck();
-    this.superman_head();
-    this.superman_hair();
-    this.superman_eyes();
-    this.superman_lips();
+    this.join_trs(200,500,0,0,1,1);
     this.superman_body();
+    this.leave();
+    
+    this.join();
+    this.superman_cape();
+    this.leave_colors('#df2607','#df2607');
+
+    this.join_trs(-475,85,0,0,1,1);
+    this.superman_head();
+    this.leave_colors('#fbad44','#fbad44');
+
+    this.join_trs(300,510,0,0,1,1);
+    this.superman_harm();
+    this.leave();
+    
+    this.join_trs(-115,20,0,0,1,1);
+    this.superman_hand();
+    this.leave_colors('#fbad44','#fbad44');
+
+    this.superman_hair();
+
+    this.join_trs(340,480,0,0,0.4,0.4);
+    this.superman_eyes();
+    this.leave_colors('red','white');
+    
+    this.join_trs(100,500,0,0,1,1);
     this.superman_leg();
-    this.superman_hip();
-    this.superman_rightharm();
-    this.superman_righthand();
-    this.superman_leg();
+    this.leave();
+
+    this.join_trs(-150,0,0,0,1,1);
+    this.superman_boot();
+    this.leave_colors('red','red');
+
+    this.join_trs(500,100,0,0,0.1,0.1);
     this.superman_symbol();
+    this.leave_colors('red','red');
 }
 
 /*---------------------------------------------------------------------
@@ -298,7 +375,7 @@ function draw()
     this.deathstar();
     
     
-    /* this.superman(); */
+    this.superman();
 }
 
 function functions(gc)
@@ -320,21 +397,18 @@ function functions(gc)
     gc.deathstar_xray=deathstar_xray;
     gc.deathstar_xrayplus=deathstar_xrayplus;
     gc.deathstar_xrayball=deathstar_xrayball;
-    this.superman_leftharm=superman_leftharm;
-    this.superman_lefhand=superman_lefhand;
-    this.superman_cape=superman_cape;
-    this.superman_neck=superman_neck;
-    this.superman_head=superman_head;
-    this.superman_hair=superman_hair;
-    this.superman_eyes=superman_eyes;
-    this.superman_lips=superman_lips;
-    this.superman_body=superman_body;
-    this.superman_leg=superman_leg;
-    this.superman_hip=superman_hip;
-    this.superman_rightharm=superman_rightharm;
-    this.superman_righthand=superman_righthand;
-    this.superman_leg=superman_leg;
-    this.superman_symbol=superman_symbol;
+    gc.superman_harm=superman_harm;
+    gc.superman_hand=superman_hand;
+    gc.superman_cape=superman_cape;
+    gc.superman_head=superman_head;
+    gc.superman_hair=superman_hair;
+    gc.superman_eyes=superman_eyes;
+    gc.superman_body=superman_body;
+    gc.superman_leg=superman_leg;
+    gc.superman_leg=superman_leg;
+    gc.superman_boot=superman_boot;
+    gc.superman_symbol=superman_symbol;
+    gc.superman=superman;
 }
 
 function main()
