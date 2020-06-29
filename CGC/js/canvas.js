@@ -435,7 +435,7 @@ function draw()
     {
         this.join();
         this.stars();
-        this.leave_colors(`white`, `black`);
+        this.leave_colors(`white`, `white`);
 
         n++;
     }
